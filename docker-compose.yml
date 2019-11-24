@@ -1,9 +1,7 @@
 version: '3'
 
 services:
-  db:
-    image: postgres
-  web:
+  api:
     build: .
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
@@ -12,3 +10,25 @@ services:
       - "8000:8000"
     depends_on:
       - db
+    networks:
+      - back-tier
+  db:
+    image: mariadb
+    volumes:
+      - ./.data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: droid_market_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 'root'
+      DATABASE_HOST: 127.0.0.1
+    ports:
+      - "3306:3306"
+    networks:
+      - back-tier
+volumes:
+ data:
+networks:
+ back-tier:
+   driver: bridge
