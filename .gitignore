@@ -1,2 +1,6 @@
 .DS_Store
 .idea/
+.data
+droid_market/__pycache__/*.pyc
+users/migrations/__pycache__/
+users/__pycache__/
