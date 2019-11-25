@@ -4,7 +4,7 @@ from users.models import User, UserProfile
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ['id', 'phone', 'ddd', 'kind']
+        fields = ['id', 'phone', 'ddd']
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     profile = UserProfileSerializer(required=True)
@@ -31,13 +31,8 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         instance.email = validated_data.get('email', instance.email)
         instance.save()
 
-        profile.title = profile_data.get('title', profile.title)
-        profile.dob = profile_data.get('dob', profile.dob)
-        profile.address = profile_data.get('address', profile.address)
-        profile.country = profile_data.get('country', profile.country)
-        profile.city = profile_data.get('city', profile.city)
-        profile.zip = profile_data.get('zip', profile.zip)
-        profile.photo = profile_data.get('photo', profile.photo)
+        profile.phone = profile_data.get('phone', profile.phone)
+        profile.ddd = profile_data.get('ddd', profile.ddd)
         profile.save()
 
         return instance
