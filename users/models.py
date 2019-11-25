@@ -13,6 +13,9 @@ class User(AbstractUser):
     def __str__(self):
         return "{}".format(self.email)
 
+    def is_admin(self):
+        return self.profile.kind
+
 class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
     phone = models.CharField(max_length=9)

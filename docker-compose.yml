@@ -1,17 +1,6 @@
 version: '3'
 
 services:
-  api:
-    build: .
-    command: python3 manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-    networks:
-      - back-tier
   db:
     image: mariadb
     volumes:
@@ -25,6 +14,17 @@ services:
       DATABASE_HOST: 127.0.0.1
     ports:
       - "3306:3306"
+    networks:
+      - back-tier
+  api:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
     networks:
       - back-tier
 volumes:
