@@ -18,11 +18,14 @@ services:
       - back-tier
   api:
     build: .
+    entrypoint: ./docker-entrypoint.sh
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
       - "8000:8000"
+    links:
+      - db
     depends_on:
       - db
     networks:
