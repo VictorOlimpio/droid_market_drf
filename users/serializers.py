@@ -1,10 +1,12 @@
 from rest_framework import serializers
 from users.models import User, UserProfile
+from demands.serializers import DemandSerializer
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    demands = DemandSerializer(many=True, read_only=True)
     class Meta:
         model = UserProfile
-        fields = ['id', 'phone', 'ddd']
+        fields = ['id', 'phone', 'ddd', 'demands']
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     profile = UserProfileSerializer(required=True)
