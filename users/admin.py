@@ -4,6 +4,9 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from users.models import User, UserProfile
 
+from rest_framework.authtoken.admin import TokenAdmin
+
+TokenAdmin.raw_id_fields = ['user']
 
 class UserProfileInline(admin.StackedInline):
     model = UserProfile
