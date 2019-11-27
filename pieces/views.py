@@ -4,7 +4,7 @@ from pieces.serializers import PieceSerializer
 from pieces.permissions import IsLoggedInUserOrAdmin
 from users.permissions import IsAdminUser
 
-class PiecesVewSet(viewsets.ModelViewSet):
+class PieceVewSet(viewsets.ModelViewSet):
     queryset = Piece.objects.all()
     serializer_class = PieceSerializer
 
