@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import UserProfile
+from users.models import User
 from pieces.models import Piece
 
 STATUSES = (
@@ -8,7 +8,7 @@ STATUSES = (
 )
 
 class Demand(models.Model):
-    owner = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name="demands")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="demands")
     piece = models.ForeignKey(Piece, on_delete=models.CASCADE, related_name="demands")
     street = models.CharField(max_length=50)
     neighborhood = models.CharField(max_length=20)

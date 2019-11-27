@@ -3,17 +3,17 @@ from users.models import User, UserProfile
 from demands.serializers import DemandSerializer
 
 class UserProfileSerializer(serializers.ModelSerializer):
-    demands = DemandSerializer(many=True, read_only=True)
     class Meta:
         model = UserProfile
-        fields = ['id', 'phone', 'ddd', 'demands']
+        fields = ['id', 'phone', 'ddd']
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     profile = UserProfileSerializer(required=True)
+    demands = DemandSerializer(many=True, read_only=True)
 
     class Meta:
         model = User
-        fields = ('url', 'email', 'first_name', 'last_name', 'password', 'profile')
+        fields = ('url', 'email', 'first_name', 'last_name', 'password', 'profile', 'demands')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
