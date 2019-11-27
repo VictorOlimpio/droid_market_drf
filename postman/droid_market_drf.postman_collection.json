@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "f9b70c02-cf63-4096-973b-3327e8edc024",
+		"name": "droid_market_drf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 6ae85b3ee0efc61036be6913e3bc6770fc19d50c",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/accounts/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"victorolimpio\",\n\t\"first_name\": \"Victor\",\n\t\"last_name\": \"Olimpio\",\n\t\"email\": \"victorolimpio@email.com\",\n\t\"password\": \"12345678\",\n\t\"profile\":{\n\t\t\"phone\": \"987654321\",\n\t\t\"ddd\": \"21\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/accounts/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"exemplo@email.com\",\n\t\"password\": \"589RDQ43\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/api-token-auth/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"api-token-auth",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pieces",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 6ae85b3ee0efc61036be6913e3bc6770fc19d50c",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/pieces/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pieces",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create pieces",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 6ae85b3ee0efc61036be6913e3bc6770fc19d50c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"head\",\n\t\"description\": \"a droid head\",\n\t\"value\": 200.0\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/pieces/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pieces",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "demands",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 6ae85b3ee0efc61036be6913e3bc6770fc19d50c",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/demands/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demands",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
