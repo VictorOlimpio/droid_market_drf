@@ -27,14 +27,14 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         return user
 
     def update(self, instance, validated_data):
-        profile_data = validated_data.pop('profile')
-        profile = instance.profile
-
         instance.email = validated_data.get('email', instance.email)
         instance.save()
 
-        profile.phone = profile_data.get('phone', profile.phone)
-        profile.ddd = profile_data.get('ddd', profile.ddd)
-        profile.save()
+        if 'profile' in validated_data.keys() and instance.is_staff == False:
+            profile = instance.profile
+            profile_data = validated_data.pop('profile')
+            profile.phone = profile_data.get('phone', profile.phone)
+            profile.ddd = profile_data.get('ddd', profile.ddd)
+            profile.save()
 
         return instance
