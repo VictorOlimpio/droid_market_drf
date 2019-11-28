@@ -15,7 +15,24 @@ class Demand(models.Model):
     city = models.CharField(max_length=30)
     state = models.CharField(max_length=20)
     number = models.IntegerField()
-    cep = models.CharField(max_length=9)
+    postal_code = models.CharField(max_length=9)
     status = models.IntegerField(default=0, choices= STATUSES)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def contact(self):
+        if not self.owner.is_staff:
+            return {'phone': self.owner.profile.phone,
+                    'email': self.owner.email}
+
+    def piece_description(self):
+        return {'description': self.piece.description}
+
+    def address(self):
+        return {'street': self.street,
+                'neighborhood': self.neighborhood,
+                'city': self.city,
+                'state': self.state,
+                'number': self.number,
+                'postal_code': self.postal_code
+                }

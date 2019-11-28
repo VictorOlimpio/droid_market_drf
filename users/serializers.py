@@ -30,7 +30,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         instance.email = validated_data.get('email', instance.email)
         instance.save()
 
-        if 'profile' in validated_data.keys() and instance.is_staff == False:
+        if 'profile' in validated_data.keys() and (not instance.is_staff):
             profile = instance.profile
             profile_data = validated_data.pop('profile')
             profile.phone = profile_data.get('phone', profile.phone)
