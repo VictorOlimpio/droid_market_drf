@@ -40,7 +40,7 @@ Os campos (rua, bairro, cidade, uf, numero, cep, complemento) formam a informaç
 
 ## CONFIGURAÇÃO
 
-A API foi desenvolvida em Ruby on Rails, utilizando a versão 2.6.1 do Ruby, e a versão 5.2.3 do Rails. O banco de dados utizliado é o MySQL.
+A API foi desenvolvida em Django com o framework Django Rest Framework. O banco de dados utilizado é o MySQL.
 
 A API atende aos padrões do JSON API, implementa autenticação, o padrão cliente-servidor, possui paginação e possibilita cacheamento, atendendo as CONSTRAINTS de APIs RESTFUL.
 
