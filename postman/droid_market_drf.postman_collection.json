@@ -6,37 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "get users",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Authorization",
-						"value": "Token 6ae85b3ee0efc61036be6913e3bc6770fc19d50c",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "localhost:8000/api/accounts/users",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"accounts",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "registration",
 			"request": {
 				"method": "POST",
@@ -54,7 +23,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"username\": \"victorolimpio\",\n\t\"first_name\": \"Victor\",\n\t\"last_name\": \"Olimpio\",\n\t\"email\": \"victorolimpio@email.com\",\n\t\"password\": \"12345678\",\n\t\"profile\":{\n\t\t\"phone\": \"987654321\",\n\t\t\"ddd\": \"21\"\n\t}\n}"
+					"raw": "{\n\t\"username\": \"user1\",\n\t\"first_name\": \"Fulano\",\n\t\"last_name\": \"Silva\",\n\t\"email\": \"email@email.com\",\n\t\"password\": \"12345678\",\n\t\"profile\":{\n\t\t\"phone\": \"987654321\",\n\t\t\"ddd\": \"21\"\n\t}\n}"
 				},
 				"url": {
 					"raw": "localhost:8000/api/accounts/users/",
@@ -66,6 +35,114 @@
 						"api",
 						"accounts",
 						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 6ae85b3ee0efc61036be6913e3bc6770fc19d50c",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/accounts/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"profile\": {\n\t\t\"phone\": \"1234567\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/accounts/users/2/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"users",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {token}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/accounts/users/2/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"users",
+						"2",
 						""
 					]
 				}
@@ -90,7 +167,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"username\": \"exemplo@email.com\",\n\t\"password\": \"589RDQ43\"\n}"
+					"raw": "{\n\t\"username\": \"email@email.com\",\n\t\"password\": \"12345678\"\n}"
 				},
 				"url": {
 					"raw": "localhost:8000/api/api-token-auth/",
@@ -119,7 +196,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Token 6ae85b3ee0efc61036be6913e3bc6770fc19d50c",
+						"value": "Token {token}",
 						"type": "text"
 					}
 				],
@@ -156,7 +233,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Token 6ae85b3ee0efc61036be6913e3bc6770fc19d50c",
+						"value": "Token {token}",
 						"type": "text"
 					}
 				],
@@ -181,6 +258,80 @@
 			"response": []
 		},
 		{
+			"name": "update piece",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"description\": \"a head\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/pieces/1/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pieces",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete piece",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {token}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/pieces/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pieces",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "demands",
 			"request": {
 				"method": "GET",
@@ -197,7 +348,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Token 6ae85b3ee0efc61036be6913e3bc6770fc19d50c",
+						"value": "Token {token}",
 						"type": "text"
 					}
 				],
@@ -211,6 +362,127 @@
 					"path": [
 						"api",
 						"demands",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create demand",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"owner\": 1,\n\t\"piece\": 1,\n\t\"street\": \"Rua 1\",\n\t\"neighborhood\": \"Bairro 1\",\n\t\"city\": \"Cidade 1\",\n\t\"state\": \"Estado 1\",\n\t\"number\": 123,\n\t\"cep\": \"12345-567\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/demands/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demands",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete demand",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {token}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/demands/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demands",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update demand",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {token}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"status\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/demands/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demands",
+						"1",
 						""
 					]
 				}
