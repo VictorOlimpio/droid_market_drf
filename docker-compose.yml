@@ -1,28 +1,29 @@
 version: '3'
 
 services:
-  db:
-    image: mariadb
+  mysqldb:
+    image: mysql
+    container_name: 'db'
     volumes:
       - ./.data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: droid_market_db
-      MYSQL_USER: root
+      MYSQL_DATABASE: 'droid_market_db'
       MYSQL_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
       DATABASE_HOST: 127.0.0.1
     ports:
       - "3306:3306"
-  api:
+  django:
     build: .
+    container_name: 'api'
     restart: always
-    command: python manage.py runserver 0.0.0.0:8000
+    command: ./docker-entrypoint.sh
     volumes:
       - .:/code
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - mysqldb
 volumes:
   data:
