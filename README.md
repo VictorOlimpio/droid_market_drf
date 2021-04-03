@@ -50,13 +50,7 @@ Para preparar o ambiente, execute os comandos a seguir:
 
 ```
 docker-compose build
-docker-compose up -d
-```
-
-Para executar as migrações:
-
-```
-docker-compose run api python manage.py migrate 
+docker-compose up
 ```
 
 ## EXECUTANDO
