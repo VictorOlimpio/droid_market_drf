@@ -53,6 +53,11 @@ docker-compose build
 docker-compose up
 ```
 
+Para executar todos os testes:
+
+```
+docker-compose run django python manage.py test
+```
 ## EXECUTANDO
 
 Com a API executando, é possível realizar as requisições necessárias para a aplicação.
