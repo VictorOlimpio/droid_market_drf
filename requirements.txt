@@ -3,3 +3,6 @@ djangorestframework
 PyMySQL
 ipdb
 cryptography
+model-bakery
+faker
+django-extensions
